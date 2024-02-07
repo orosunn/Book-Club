@@ -1,4 +1,6 @@
 import './App.css';
+import Header from './components/Header'
+import Footer from './components/Footer'
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -9,11 +11,13 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div>
+    <>
+      <Header />
+      <main>
         <Outlet />
-      </div>
-    </ApolloProvider>
+      </main>
+      <Footer />
+    </>
   );
 }
 
