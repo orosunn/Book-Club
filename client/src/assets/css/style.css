@@ -1,8 +1,40 @@
+.body {
+    margin: 10px;
+}
+
 .header {
     background-color: purple;
     height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.title {
+   font-size: 36px;
+   margin: 10px;
+}
+
+.signup {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+.login {
+    margin-right: 20px;
+    font-size: 24px;
 }
 
 .footer {
     background-color: purple;
+    height: 50px;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form {
+    margin-bottom: 100px;
 }

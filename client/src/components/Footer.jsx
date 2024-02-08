@@ -6,7 +6,7 @@ const Footer = () => {
         <footer id="footer">
             <div className="footer">
                 <Contact />
-                <h1>Contact us</h1>
+                <a href='/contact'>Contact us</a>
             </div>
         </footer>
     );
