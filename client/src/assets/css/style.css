@@ -1,9 +1,23 @@
-.body {
-    margin: 10px;
+:root {
+    --beige: #E0C590;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.intro {
+    font-size: 18px;
+}
+
+.logo {
+    height: 100px;
+    width: 350px;
+    position: absolute;
+    top: 0;
 }
 
 .header {
-    background-color: purple;
+    background-color: var(--beige);
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -12,7 +26,10 @@
 
 .title {
    font-size: 36px;
-   margin: 10px;
+}
+
+.header-links {
+    margin-top: 20px;
 }
 
 .signup {
@@ -25,8 +42,12 @@
     font-size: 24px;
 }
 
+.navbar {
+    background-color: aqua;
+}
+
 .footer {
-    background-color: purple;
+    background-color: var(--beige);
     height: 50px;
 }
 
