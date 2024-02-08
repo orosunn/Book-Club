@@ -1,4 +1,6 @@
 const User = require ('./users')
-const Thought = require ('./thoughts')
+const Post = require ('./posts')
+const Book = require ('./books')
+const Genre = require ('./genre')
 
-module.exports = {User, Thought}
+module.exports = {User, Post, Book, Genre}
