@@ -4,7 +4,11 @@ export default function Header() {
   return (
     <>
     <header className="header">
-        <a>Login</a>
+        <h1 className="title">BookNook</h1>
+        <div className="header-links">
+        <a className="login" href='/login'>Login</a>
+        <a className="signup" href='/signup'>Sign Up</a>
+        </div>
     </header>
     <Navbar />
     </>

@@ -1,10 +1,13 @@
-import './assets/css/style.css'
+import './assets/css/style.css';
 import 'semantic-ui-css/semantic.min.css';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';
-import Home from './pages/Home'
+import Home from './pages/Home';
+import Books from './pages/Books';
+import Meetings from './pages/Meetings';
+import Contact from './pages/Contact'
 
 const router = createBrowserRouter([
   {
@@ -15,18 +18,18 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      // {
-      //   path: '/login',
-      //   element: <Login />,
-      // },
-      // {
-      //   path: '/donate',
-      //   element: <Donate />,
-      // },
-      // {
-      //   path: '/contact',
-      //   element: <Contact />,
-      // },
+      {
+        path: '/books',
+        element: <Books />,
+      },
+      {
+        path: '/meetings',
+        element: <Meetings />,
+      },
+      {
+        path: '/contact',
+        element: <Contact />,
+      },
     ],
   },
 ]);
