@@ -2,12 +2,12 @@ const express = require('express');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
+require('dotenv').config()
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 const { authMiddleware } = require('./utils/auth');
-
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -22,6 +22,9 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   
+  app.get('/apiKey', (req, res) => {
+    res.json({key: process.env.API_KEY})
+  })
 
   app.use('/graphql', expressMiddleware(server,{
     context: authMiddleware
