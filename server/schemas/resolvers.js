@@ -17,7 +17,7 @@ const resolvers = {
             }
             throw AuthenticationError;
           },
-        getpost: async () => {
+        getPost: async () => {
          
             return await Post.find({}).populate('user');
         },
