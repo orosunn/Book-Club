@@ -35,6 +35,6 @@ export const GET_USER = gql
   }
 }`
 
-export cost GET_BOOKS = gql `
+export const GET_BOOKS = gql `
 
 `
