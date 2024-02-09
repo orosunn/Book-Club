@@ -47,7 +47,7 @@ const resolvers = {
 
         try {
             const newPost = await Post.create({ postText, createdAt, username });
-            await newPost.populate('username'); // Assuming 'user' is a reference field in your Post model
+            await newPost.populate('username'); 
 console.log(newPost);
             return newPost;
         } catch (error) {

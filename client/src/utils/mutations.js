@@ -8,26 +8,28 @@ mutation Mutation($username: String!, $email: String!, $password: String!) {
   }
 }
 `;
-// export const GET_USER = gql 
-// `query getUser {
-//     _id
-//     username
-//     email
-//     posts {
-//       _id
-//       content
-//       book {
-//         _id
-//         title
-//         author
-//         description
-//         imageUrl
-//         votes
-//       }
-//       createdAt
-//     }
-//   }
-// }`
+export const GET_USER = gql `
+query GetUser {
+  getUser {
+    _id
+    username
+    email
+  }
+}`
+
+
+export const GET_POSTS = gql`
+mutation Mutation($postText: String!, $createdAt: String, $username: String!) {
+  addPost(postText: $postText, createdAt: $createdAt, username: $username) {
+    postText
+    createdAt
+    username
+  }
+}
+`
+
+
+
 
 // export const GET_POSTS = gql 
 // `query GetPost($id: ID!) {
