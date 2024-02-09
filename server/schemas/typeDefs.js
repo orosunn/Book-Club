@@ -4,7 +4,6 @@ const typeDefs = `
     _id: ID
     username: String
     email: String
-    password: String
     posts: [Post]!
   }
 
@@ -16,7 +15,7 @@ const typeDefs = `
     imageUrl: String
     genre: Genre
     votes: Int # Number of votes this book has received
-    comments: [Post]! # Assuming comments on books are captured as Posts
+    # comments: [Post]! # Assuming comments on books are captured as Posts
   }
 
 type Post {
@@ -37,8 +36,13 @@ type Post {
 type Query {
     getBooks: [Book]
     getBook(id: ID!): Book 
-    getComments(bookId: ID!): [Comment]
+   # getComments(bookId: ID!): [Comment]
+   getUser: User
+
+ 
 }
+
+
 
 type Auth {
     token: ID!
@@ -49,10 +53,10 @@ type Auth {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(postText: String!): post
-    addPost(postId: ID!, commentText: String!): Post
+    addPost(postText: String!): Post
+    #addPost(postId: ID!, commentText: String!): Post
     removePost(posttId: ID!): Post
-    removePost(postId: ID!, commentId: ID!): Post
+   # removePost(postId: ID!, commentId: ID!): Post
   }
 `
 module.exports = typeDefs;

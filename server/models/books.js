@@ -36,8 +36,8 @@ const Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;
 
-const axios = require('axios');
-const Book = require('./models/book');
+// const axios = require('axios');
+
 
 
 //add to model to include an ability to download open source books for offline reading (PWA)
