@@ -1,5 +1,6 @@
 :root {
     --beige: #E0C590;
+    --brown: #6F3D21;
     margin: 0px;
     padding: 0px;
 }
@@ -32,14 +33,33 @@
     margin-top: 20px;
 }
 
+
+.book-card {
+    width: 300px;
+    height: 500px;
+    margin: 50px;
+}
+
+.book-image {
+    width: 200px;
+    margin: 30px;
+}
+
 .signup {
-    margin-left: 20px;
     font-size: 24px;
 }
 
+.header-btn {
+    background-color: var(--brown);
+    border-radius: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+
 .login {
-    margin-right: 20px;
     font-size: 24px;
+    text-align: center;
 }
 
 .navbar {
@@ -57,6 +77,14 @@
     width: 75%;
     left: 12.5%;
     position: relative;
+    text-align: center;
+}
+
+.comment-box {
+    border-color: black;
+    border-style: solid;
+    border-radius: 50px;
+    margin: 20px;
 }
 
 .footer {

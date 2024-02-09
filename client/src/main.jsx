@@ -1,6 +1,6 @@
 import './assets/css/style.css';
 import 'semantic-ui-css/semantic.min.css';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App';

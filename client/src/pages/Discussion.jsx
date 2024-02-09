@@ -28,7 +28,7 @@ const Comment = ({ author, date, text }) => {
   };
 
   return (
-    <div className="comment">
+    <div className="comment comment-box">
       <div className="content">
         <a className="author">{author}</a>
         <div className="metadata">
