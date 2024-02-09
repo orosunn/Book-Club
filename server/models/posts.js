@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const commentSchema =  require ('./comments')
 
 // Schema to create post model
 const postSchema = new Schema(
@@ -19,7 +20,10 @@ const postSchema = new Schema(
     username: {
       type: String,
       required: true,
-    }
+    },
+    comments: [
+      commentSchema
+    ]
   },
   {
     toJSON: {
