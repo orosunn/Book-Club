@@ -30,6 +30,7 @@ async function seedDatabase() {
       const book = new Book({
         title: bookData.volumeInfo.title,
         author: bookData.volumeInfo.authors ? bookData.volumeInfo.authors.join(', ') : 'Unknown',
+        imageUrl: bookData.volumeInfo.imageLinks.thumbnail || '(link to no image found)',
         description: bookData.volumeInfo.description || 'No description available'
       });
       await book.save();
