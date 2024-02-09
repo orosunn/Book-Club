@@ -20,9 +20,8 @@ const typeDefs = `
 
 type Post {
     _id: ID!
-    content: String!
-    author: User!
-    book: Book!
+    postText: String!
+    username: String!
     createdAt: String # Consider using a DateTime scalar
 }
 
@@ -39,8 +38,6 @@ type Query {
    # getComments(bookId: ID!): [Comment]
    getUser: User
    getPost: [Post]
-
- 
 }
 
 
@@ -54,7 +51,7 @@ type Auth {
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(postText: String!): Post
+    addPost(postText: String!, createdAt: String, username:String! ): Post
     #addPost(postId: ID!, commentText: String!): Post
     removePost(posttId: ID!): Post
    # removePost(postId: ID!, commentId: ID!): Post
