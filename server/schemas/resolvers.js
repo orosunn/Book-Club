@@ -21,10 +21,9 @@ const resolvers = {
          
             return await Post.find({}).populate('user');
         },
-        // comment: async () => {
-        //     const params = _id ? { _id } : {};
-        //     return Comment.find (params);
-        // } <- comment model not built yet, leave commented out for now
+        getComment: async () => {
+            return await Comment.find ({}).populate('post');
+        } 
     },
     Mutation: {
         addUser: async (_, { username, email, password }, context) => {

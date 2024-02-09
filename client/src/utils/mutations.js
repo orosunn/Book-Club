@@ -22,19 +22,16 @@ export const GET_USER = gql
     posts {
       _id
       content
-      book {
+      comments {
         _id
-        title
-        author
-        description
-        imageUrl
-        votes
+        content
+        date
       }
       createdAt
     }
   }
 }`
 
-export cost GET_BOOKS = gql `
+// export cost GET_BOOKS = gql `
 
-`
+// `
