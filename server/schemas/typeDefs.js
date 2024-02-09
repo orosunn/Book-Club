@@ -38,6 +38,7 @@ type Query {
     getBook(id: ID!): Book 
    # getComments(bookId: ID!): [Comment]
    getUser: User
+   getPost: [Post]
 
  
 }

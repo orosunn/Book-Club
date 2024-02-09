@@ -22,10 +22,12 @@ module.exports = {
     }
 
     try {
+      console.log('Incoming token',token)
       const { authenticatedPerson } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = authenticatedPerson;
-    } catch {
+    } catch(error) {
       console.log('Invalid token');
+      console.error(error)
     }
 
     return req;
