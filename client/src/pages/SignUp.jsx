@@ -8,12 +8,12 @@ import Auth from '../utils/auth';
 
 function SignUp() {
     //useState hooks that will keep track of the form input values and errorMessages
-    const [name, setName] = useState('');
+    const [username, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [formState, setFormState] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
@@ -43,7 +43,7 @@ function SignUp() {
 
         //implement switch statement
         switch (name) {
-            case 'name': setName(value);
+            case 'username': setName(value);
                 break;
             case 'email': setEmail(value);
                 if (!validateEmail(value) && value.trim() !== '') {
@@ -58,20 +58,20 @@ function SignUp() {
     };
 
     // Comment in once backend set up
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
-    //     console.log(formState);
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
 
-    //     try {
-    //       const { data } = await addUser({
-    //         variables: { ...formState },
-    //       });
+        try {
+          const { data } = await addUser({
+            variables: { ...formState },
+          });
 
-    //       Auth.login(data.addUser.token);
-    //     } catch (e) {
-    //       console.error(e);
-    //     }
-    //   };
+          Auth.login(data.addUser.token);
+        } catch (e) {
+          console.error(e);
+        }
+      };
 
 
     return (
@@ -80,8 +80,8 @@ function SignUp() {
             <form onSubmit={handleFormSubmit}>
 
                 <input
-                    value={name}
-                    name="name"
+                    value={username}
+                    name="username"
                     onChange={handleInputChange}
                     onBlur={handleBlur}
                     type="text" placeholder="Your Name"
@@ -114,3 +114,4 @@ function SignUp() {
         </>
     )
 }
+export default SignUp;

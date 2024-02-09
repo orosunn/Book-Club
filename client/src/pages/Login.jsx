@@ -48,12 +48,12 @@ const Login = (props) => {
         <div>
           <h4>Login</h4>
           <div>
-            {data ? (
+            {/* {data ? (
               <p>
                 Success! You may now head{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
-            ) : (
+            ) : ( */}
               <form onSubmit={handleFormSubmit}>
                 <input
                   placeholder="Your email"
@@ -76,13 +76,13 @@ const Login = (props) => {
                   Submit
                 </button>
               </form>
-            )}
-
+            {/* )} */}
+{/* 
             {error && (
               <div>
                 {error.message}
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
