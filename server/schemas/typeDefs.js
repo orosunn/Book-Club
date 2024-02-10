@@ -11,10 +11,9 @@ const typeDefs = `
     _id: ID!
     title: String!
     author: String!
-    description: String
     imageUrl: String
-    genre: Genre
-    votes: Int # Number of votes this book has received
+    genre: String
+    # votes: Int # Number of votes this book has received
     # comments: [Post]! # Assuming comments on books are captured as Posts
   }
 
@@ -25,11 +24,7 @@ type Post {
     createdAt: String # Consider using a DateTime scalar
 }
 
-    type Genre {
-        _id: ID!
-        name: String!
-        books: [Book]!
-    }
+
           
         
 type Query {

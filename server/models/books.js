@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const bookSchema = new mongoose.Schema(
+const bookSchema = new Schema(
     {
         title: {
             type: String,
@@ -18,10 +18,34 @@ const bookSchema = new mongoose.Schema(
             type: String
         },
         // get tutor help add a field, an array of userId. the field will be votes, and the array will be referencing the user. when a user upvotes or downvotes the book. get help setting up resolver to handle upvote or downvote. find the book in the database. check to see if userId is inside the votes array. 
-    }, { timestamps: true }
+        upVote: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            }
+        ],
+        downVote: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            }
+        ]
+    },
+    {
+        toJSON: {
+            virtuals: true
+        },
+        id: false
+    }
 );
 
-const Book = mongoose.model('Book', bookSchema);
+
+bookSchema.virtual('upvoteCount')
+    .get(function () {
+        return this.upVote.length;
+    })
+
+const Book = model('Book', bookSchema);
 
 module.exports = Book;
 
