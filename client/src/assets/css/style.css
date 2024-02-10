@@ -1,6 +1,8 @@
 :root {
     --beige: #E0C590;
     --brown: #6F3D21;
+    --lightblue: #A7BED3;
+    --navyblue: #1B3159;
     margin: 0px;
     padding: 0px;
 }
@@ -47,10 +49,11 @@
 
 .signup {
     font-size: 24px;
+    color: white;
 }
 
 .header-btn {
-    background-color: var(--brown);
+    background-color: var(--navyblue);
     border-radius: 50px;
     margin-left: 5px;
     margin-right: 5px;
@@ -62,9 +65,7 @@
     text-align: center;
 }
 
-.navbar {
-    background-color: aqua;
-}
+
 
 .discuss-header {
     background-color: var(--beige);

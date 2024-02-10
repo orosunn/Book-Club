@@ -1,15 +1,11 @@
 // find for books(just for voting)(query), user query(for posts), query for posts, query for comments
-//mutations: add user, login, add post, remove post, add comment, remove comments, create vote (see MERN mini-project) 
+//mutations: add user, login, add post, remove post, add comment, remove comments, (edit) create vote (see MERN mini-project) 
 
 const { Book, Post, User } = require('../models');
 const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getBooks: async () => {
-
-            return Book.find()
-        },
         //I want to check for if a user logged in
         getUser: async (parent, args, context) => {
             if (context.user) {
