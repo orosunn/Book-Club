@@ -42,51 +42,27 @@ const Login = (props) => {
     });
   };
 
+
   return (
-    <main>
       <div>
-        <div>
-          <h4>Login</h4>
-          <div>
-            {/* {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : ( */}
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            {/* )} */}
-{/* 
-            {error && (
-              <div>
-                {error.message}
+        <div className="login-page">
+          <h1 className="login-header">Login</h1>
+          <div className="login-form">
+            <form className="ui form" onSubmit={handleFormSubmit}>
+              <div className="field">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Email" value={formState.email}
+                  onChange={handleChange} />
               </div>
-            )} */}
+              <div className="field">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="******" value={formState.password}
+                  onChange={handleChange} />
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </main>
   );
 };
 
