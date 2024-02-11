@@ -50,20 +50,21 @@ const Login = (props) => {
           <div className="login-form">
             <form className="ui form" onSubmit={handleFormSubmit}>
               <div className="field">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Email" value={formState.email}
+                <label className='login-label'>Email</label>
+                <input className="input" type="email" name="email" placeholder="Email" value={formState.email}
                   onChange={handleChange} />
               </div>
               <div className="field">
-                <label>Password</label>
-                <input type="password" name="password" placeholder="******" value={formState.password}
+                <label className='login-label'>Password</label>
+                <input className="input" type="password" name="password" placeholder="******" value={formState.password}
                   onChange={handleChange} />
               </div>
+              <button className="ui button" onClick={handleFormSubmit}>Login</button>
             </form>
           </div>
         </div>
       </div>
   );
-};
+}
 
 export default Login;

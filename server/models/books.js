@@ -17,7 +17,6 @@ const bookSchema = new Schema(
         imageUrl: {
             type: String
         },
-        // get tutor help add a field, an array of userId. the field will be votes, and the array will be referencing the user. when a user upvotes or downvotes the book. get help setting up resolver to handle upvote or downvote. find the book in the database. check to see if userId is inside the votes array. 
         upVote: [
             {
                 type: Schema.Types.ObjectId,

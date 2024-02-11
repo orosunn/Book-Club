@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { validateEmail } from '../utils/helpers';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
@@ -17,7 +16,7 @@ function SignUp() {
         email: '',
         password: '',
     });
-    
+
 
     const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -63,55 +62,54 @@ function SignUp() {
         console.log(formState);
 
         try {
-          const { data } = await addUser({
-            variables: { ...formState },
-          });
+            const { data } = await addUser({
+                variables: { ...formState },
+            });
 
-          Auth.login(data.addUser.token);
+            Auth.login(data.addUser.token);
         } catch (e) {
-          console.error(e);
+            console.error(e);
         }
-      };
-
+    };
 
     return (
-        <>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleFormSubmit}>
-
-                <input
-                    value={username}
-                    name="username"
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    type="text" placeholder="Your Name"
-
-                />
-
-                <input
-                    value={email}
-                    name="email"
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    type="email" placeholder="Email"
-                />
-
-
-                <input
-                    value={password}
-                    name="password"
-                    onChange={handleInputChange}
-                    onBlur={handleBlur}
-                    type="password" placeholder="Password"
-                />
-
-                <button type="submit">
-                    Sign Up
-                </button>
-            </form>
-
-
-        </>
+        <div className="signup-page">
+            <h1 className="signup-header">Sign Up</h1>
+                <form className="ui form signup-form" onSubmit={handleFormSubmit}>
+                    <div className="three fields">
+                        <div className="field">
+                            <label>Username</label>
+                            <input value={username}
+                                name="username"
+                                onChange={handleInputChange}
+                                onBlur={handleBlur}
+                                type="text"
+                                placeholder="Your Name" />
+                        </div>
+                        <div className="field">
+                            <label>Email</label>
+                            <input value={email}
+                                name="email"
+                                onChange={handleInputChange}
+                                onBlur={handleBlur}
+                                type="email" placeholder="Email" />
+                        </div>
+                        <div className="field">
+                            <label>Password</label>
+                            <input value={password}
+                                name="password"
+                                onChange={handleInputChange}
+                                onBlur={handleBlur}
+                                type="password" placeholder="Password" />
+                        </div>
+                        <button type="submit">
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+        </div>
     )
 }
 export default SignUp;
+
+
