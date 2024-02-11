@@ -30,6 +30,13 @@
     padding: 20px;
 }
 
+.header-btn {
+    background-color: var(--navyblue);
+    border-radius: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 40px;
+}
 
 #home-header {
     font-size: 36px;
@@ -64,6 +71,7 @@
 
 .book-image {
     width: 200px;
+    height: 300px;
     margin: 30px;
 }
 
@@ -79,23 +87,28 @@
     padding: 2px;
 }
 
-.header-btn {
-    background-color: var(--navyblue);
-    border-radius: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
-    height: 40px;
-}
+
 
 .login-page {
-    margin-top: 75px;
+    margin: 70px;
+    padding-top: 10px;
     width: 50%;
-    left: 25%;
+    left: 20%;
     position: relative;
+    border-color: var(--navyblue);
+    border-style: solid;
+    border-radius: 30px;
+    background-color: var(--navyblue);
 }
+
 .login-header {
     text-align: center;
     margin-bottom: 30px;
+    color: white;
+}
+
+.login-label {
+    color: white;
 }
 
 .login-form {
@@ -103,8 +116,26 @@
     text-align: center;
     left: 25%;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
+
+.signup-page {
+    margin: 70px;
+    padding: 50px;
+    width: 70%;
+    left: 10%;
+    position: relative;
+    border-color: var(--navyblue);
+    border-style: solid;
+    border-radius: 30px;
+    background-color: var(--navyblue);
+}
+
+.signup-header {
+    color: white;
+    text-align: center;
+}
+
 
 .discuss-header {
     background-color: var(--beige);
@@ -154,7 +185,6 @@
     margin-top: 15px;
 }
 
-
 .fields {
     display: flex;
     flex-direction: column;
@@ -165,6 +195,22 @@
     text-align: center;
 }
 
+.contact-header {
+    color: white;
+    text-align: center;
+}
+
+.label {
+    color: white;
+}
+
 .contact-form {
-    margin-bottom: 100px;
+    margin: 50px;
+    width: 50%;
+    left: 25%;
+    border-style: solid;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: var(--navyblue);
+
 }

@@ -33,7 +33,7 @@
         "title": "Jane Eyre",
         "author": "Charlotte Bronte",
         "genre": "Coming of Age",
-        "imageUrl": "/images/jane-eyre.jpg"
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/jane-eyre.jpg?raw=true"
     },
     {
         "title": "Wuthering Heights",
@@ -111,7 +111,7 @@
         "title": "Ulysses",
         "author": "James Joyce",
         "genre": "Experimental",
-        "imageUrl": "/images/ulysses.jpg"
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/ulysses.jpg?raw=true"
     },
     {
         "title": "Hary Potter and the Philosophers Stone",

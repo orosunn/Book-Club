@@ -45,10 +45,10 @@ function Contact() {
     return (
         
         <div className="ui form contact-form">
-            <h1>Get in Touch!</h1>
+            <h1 className="contact-header">Get in Touch!</h1>
             <div className="two fields contact-fields">
                 <div className="field">
-                    <label>First name</label>
+                    <label className="label">First name</label>
                     <input type="text" placeholder="First Name" value={name} onChange={handleInputChange} name="name" onBlur={handleInputBlur} />
                 </div>
                 <div className="field">
