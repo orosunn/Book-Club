@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_BOOKS } from '../utils/queries';
 
 const Book = ({ book, onVote }) => {
   const [votes, setVotes] = useState(0);
@@ -16,10 +18,10 @@ const Book = ({ book, onVote }) => {
   };
 
   return (
-    
-      <div>
-        <img className="book-image" src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} />
-      
+
+    <div>
+      <img className="book-image" src={book.imageUrl} alt={book.title} />
+
       <div className="extra">
         <div>Rating: {votes}</div>
         <button className="btn btn-success" onClick={() => handleVote(1)}>
@@ -29,28 +31,19 @@ const Book = ({ book, onVote }) => {
           Downvote
         </button>
       </div>
-      </div>
+    </div>
   );
 };
 
 export default function Books() {
-  const [books, setBooks] = useState([]);
 
-  useEffect(() => {
-    async function fetchBooksFromAPI() {
-      try {
-        const bookApi = await fetch(`/apiKey`);
-        const bookData = await bookApi.json();
-        const apiKey = bookData.key;
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=''&maxResults=20&key=${apiKey}`);
-        const data = await response.json();
-        setBooks(data.items);
-      } catch (error) {
-        console.error('Error fetching books from Google Books API:', error);
-      }
-    }
-    fetchBooksFromAPI();
-  }, []);
+  const {loading, data} =  useQuery(GET_BOOKS);
+
+  const bookData =  data?.getBooks || []
+
+  console.log(bookData);
+
+
 
   const handleVote = (bookId, newVotes) => {
     // Implement logic to handle voting for the specific book
@@ -60,7 +53,7 @@ export default function Books() {
   return (
     <div className="books-page">
       <div className="ui four cards">
-        {books.map((book) => (
+        {bookData?.map((book) => (
           <Book
             key={book.id}
             book={book}

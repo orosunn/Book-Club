@@ -6,6 +6,10 @@ const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        getBooks: async (parent, args) => {
+            const books = await Book.find();
+            return books;
+        },
         //I want to check for if a user logged in
         getUser: async (parent, args, context) => {
             if (context.user) {
@@ -25,7 +29,7 @@ const resolvers = {
 
 
     Mutation: {
-        addUser: async (_, { username, email, password }, context) => {
+        addUser: async (_, { username, email, password }) => {
             try {
                 const authResult = await User.create({ username, email, password })
                 const token = signToken(authResult)
@@ -34,23 +38,25 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
+        // create login mutation
 
-    addPost: async (_, {  postText, createdAt, username  }, context) => {
-        // Optional: Check if the user is authenticated
-        if (!context.user) {
-            throw new AuthenticationError('You must be logged in to do this');
-        }
+        addPost: async (_, { postText, createdAt, username }, context) => {
+            // Optional: Check if the user is authenticated
+            if (!context.user) {
+                throw new AuthenticationError('You must be logged in to do this');
+            }
 
-        try {
-            const newPost = await Post.create({ postText, createdAt, username });
-            await newPost.populate('username'); 
-console.log(newPost);
-            return newPost;
-        } catch (error) {
-            throw new Error(error.message);
-        }
-    },
-}
+            try {
+                const newPost = await Post.create({ postText, createdAt, username });
+                await newPost.populate('username');
+                console.log(newPost);
+                return newPost;
+            } catch (error) {
+                throw new Error(error.message);
+            }
+        },
+        //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
+    }
 
 };
 

@@ -7,9 +7,12 @@
     padding: 0px;
 }
 
-
-.intro {
-    font-size: 18px;
+.home-page {
+    background-image: url('bookshelf1.jpg');
+    background-size: 100%;
+    padding: 100px;
+    opacity: 80%;
+    margin: 0;
 }
 
 .logo {
@@ -27,8 +30,25 @@
     padding: 20px;
 }
 
-.title {
-   font-size: 36px;
+
+#home-header {
+    font-size: 36px;
+    color: black;
+}
+
+.home-text {
+    text-align: center;
+    padding: 70px;
+    color: black;
+    background-color: white;
+    opacity: 75%;
+    border-radius: 30px;
+}
+
+.intro {
+    font-size: 20px;
+    margin: 25px;
+    
 }
 
 .header-links {
@@ -48,24 +68,43 @@
 }
 
 .signup {
-    font-size: 24px;
+    font-size: 18px;
     color: white;
+    padding: 2px;
+}
+
+.login {
+    font-size: 18px;
+    color: white;
+    padding: 2px;
 }
 
 .header-btn {
     background-color: var(--navyblue);
-    border-radius: 50px;
+    border-radius: 20px;
     margin-left: 5px;
     margin-right: 5px;
-    
+    height: 40px;
 }
 
-.login {
-    font-size: 24px;
+.login-page {
+    margin-top: 75px;
+    width: 50%;
+    left: 25%;
+    position: relative;
+}
+.login-header {
     text-align: center;
+    margin-bottom: 30px;
 }
 
-
+.login-form {
+    width: 50%;
+    text-align: center;
+    left: 25%;
+    position: relative;
+    margin-bottom: 100px;
+}
 
 .discuss-header {
     background-color: var(--beige);
@@ -88,14 +127,42 @@
     margin: 20px;
 }
 
-.footer {
+#footer {
     background-color: var(--beige);
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#footer-logo {
+    width: 200px;
     height: 50px;
 }
+
+#contact-link a{
+    font-size: 24px;
+    color: var(--navyblue);
+}
+
+#contact-link a:hover {
+    color: white;
+}
+
+.footer-element {
+    margin-top: 15px;
+}
+
 
 .fields {
     display: flex;
     flex-direction: column;
+}
+
+#contact-link {
+    font-size: 18px;
+    text-align: center;
 }
 
 .contact-form {

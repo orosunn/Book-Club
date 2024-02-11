@@ -1,120 +1,122 @@
-{
-    "title": "The Lord of the Rings",
-    "author": "J.R.R Tolkien",
-    "genre": "Fantasy",
-    "imageUrl": "/images/lord-of-the-rings.jpg"
-},
-{
-    "title": "Nineteen Eighty Four",
-    "author": "George Orwell",
-    "genre": "Dystopian",
-    "imageUrl": "/images/1984.jpg"
-},
-{
-    "title": "Pride and Prejudice",
-    "author": "Jane Austen",
-    "genre": "Drama",
-    "imageUrl": "/images/pride-and-predjudice.jpg"
-},
-{
-    "title": "The Grapes of Wrath",
-    "author": "John Steinbeck",
-    "genre": "Historical Fiction",
-    "imageUrl": "/images/grapes-of-wrath.jpg"
-},
-{
-    "title": "To Kill a Mockingbird",
-    "author": "Harper Lee",
-    "genre": "Coming of Age",
-    "imageUrl": "/images/mockingbird.jpg"
-},
-{
-    "title": "Jane Eyre",
-    "author": "Charlotte Bronte",
-    "genre": "Coming of Age",
-    "imageUrl": "/images/jane-eyre.jpg"
-},
-{
-    "title": "Wuthering Heights",
-    "author": "Emily Bronte",
-    "genre": "Drama",
-    "imageUrl": "/images/wuthering-heights.jpg"
-},
-{
-    "title": "A Passage to India",
-    "author": "E. M. Forster",
-    "genre": "Historical Fiction",
-    "imageUrl": "/images/passage-to-india.jpg"
-},
-{
-    "title": "Lord of the Flies",
-    "author": "Willaim Golding",
-    "genre": "Adventure",
-    "imageUrl": "/images/lord-of-the-flies.jpg"
-},
-{
-    "title": "Hamlet",
-    "author": "William Shakespeare",
-    "genre": "Drama",
-    "imageUrl": "/images/hamlet.jpg"
-},
-{
-    "title": "A Bend in the River",
-    "author": "V. S. Naipaul",
-    "genre": "Historical Fiction",
-    "imageUrl": "/images/bend-in-the-river.jpg"
-},
-{
-    "title": "The Great Gatsby",
-    "author": "F. Scott Fitzgerald",
-    "genre": "Tragedy",
-    "imageUrl": "/images/great-gatsby.jpg"
-},
-{
-    "title": "The Catcher in the Rye",
-    "author": "J.D. Salinger",
-    "genre": "Coming of Age",
-    "imageUrl": "/images/catcher-in-the-rye.jpg"
-},
-{
-    "title": "The Bell Jar",
-    "author": "Sylvia Plath",
-    "genre": "Coming of Age",
-    "imageUrl": "/images/bell-jar.jpg"
-},
-{
-    "title": "Brave New World",
-    "author": "Aldous Huxley",
-    "genre": "Dystopian",
-    "imageUrl": "/images/brave-new-world.jpg"
-},
-{
-    "title": "The Diary of a Young Girl",
-    "author": "Anne Frank",
-    "genre": "Autobiography",
-    "imageUrl": "/images/diary.jpg"
-},
-{
-    "title": "Don Quixote",
-    "author": "Miguel de Cervantes",
-    "genre": "Adventure",
-    "imageUrl": "/images/don-quixote.jpg"
-},
-{
-    "title": "The Canterbury Tales",
-    "author": "Geoffrey Chaucer",
-    "genre": "Anthologies",
-    "imageUrl": "/images/canterbury.jpg"
-},
-{
-    "title": "Ulysses",
-    "author": "James Joyce",
-    "genre": "Experimental",
-    "imageUrl": "/images/ulysses.jpg"
-},
-{
-    "title": "Hary Potter and the Philosophers Stone",
-    "author": "J. K. Rowling",
-    "genre": "Fantasy",
-    "imageUrl": "/images/harry-potter.jpg"
-},
+[
+    {
+        "title": "The Lord of the Rings",
+        "author": "J.R.R Tolkien",
+        "genre": "Fantasy",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/lord-of-the-rings.jpg?raw=true"
+    },
+    {
+        "title": "Nineteen Eighty Four",
+        "author": "George Orwell",
+        "genre": "Dystopian",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/1984.jpg?raw=true"
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "genre": "Drama",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/pride-and-predjudice.jpg?raw=true"
+    },
+    {
+        "title": "The Grapes of Wrath",
+        "author": "John Steinbeck",
+        "genre": "Historical Fiction",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/grapes-of-wrath.jpg?raw=true"
+    },
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "genre": "Coming of Age",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/mockingbird.jpg?raw=true"
+    },
+    {
+        "title": "Jane Eyre",
+        "author": "Charlotte Bronte",
+        "genre": "Coming of Age",
+        "imageUrl": "/images/jane-eyre.jpg"
+    },
+    {
+        "title": "Wuthering Heights",
+        "author": "Emily Bronte",
+        "genre": "Drama",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/wuthering-heights.jpg?raw=true"
+    },
+    {
+        "title": "A Passage to India",
+        "author": "E. M. Forster",
+        "genre": "Historical Fiction",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/passage-to-india.jpg?raw=true"
+    },
+    {
+        "title": "Lord of the Flies",
+        "author": "Willaim Golding",
+        "genre": "Adventure",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/lord-of-the-flies.jpg?raw=true"
+    },
+    {
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "genre": "Drama",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/hamlet.jpg?raw=true"
+    },
+    {
+        "title": "A Bend in the River",
+        "author": "V. S. Naipaul",
+        "genre": "Historical Fiction",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/bend-in-the-river.jpg?raw=true"
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "Tragedy",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/great-gatsby.jpg?raw=true"
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "genre": "Coming of Age",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/catcher-in-the-rye.jpg?raw=true"
+    },
+    {
+        "title": "The Bell Jar",
+        "author": "Sylvia Plath",
+        "genre": "Coming of Age",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/bell-jar.jpg?raw=true"
+    },
+    {
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "genre": "Dystopian",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/brave-new-world.jpg?raw=true"
+    },
+    {
+        "title": "The Diary of a Young Girl",
+        "author": "Anne Frank",
+        "genre": "Autobiography",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/diary.jpg?raw=true"
+    },
+    {
+        "title": "Don Quixote",
+        "author": "Miguel de Cervantes",
+        "genre": "Adventure",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/don-quixote.jpg?raw=true"
+    },
+    {
+        "title": "The Canterbury Tales",
+        "author": "Geoffrey Chaucer",
+        "genre": "Anthologies",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/canterbury.jpg?raw=true"
+    },
+    {
+        "title": "Ulysses",
+        "author": "James Joyce",
+        "genre": "Experimental",
+        "imageUrl": "/images/ulysses.jpg"
+    },
+    {
+        "title": "Hary Potter and the Philosophers Stone",
+        "author": "J. K. Rowling",
+        "genre": "Fantasy",
+        "imageUrl": "https://github.com/orosunn/Book-Club/blob/main/client/public/images/harry-potter.jpg?raw=true"
+    }
+]
