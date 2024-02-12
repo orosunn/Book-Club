@@ -40,12 +40,37 @@ const resolvers = {
         // } <- comment model not built yet, leave commented out for now
 
 // Later add get some info from books and add it here.
+
+        me: async (parent, args, context) => {
+            if (context.user) { 
+                const userData = await User.findOne({ _id: context.user._id }) 
+          return userData 
+            }
+            throw AuthenticationError;
+ 
+        }
+        },
+        getPosts: async (parent, args, context) => {
+            try {
+                const posts = await Post.find().sort({ createdAt: -1 }); 
+                return posts;
+            } catch (error) {
+                console.error('Error retrieving posts:', error);
+                throw error;
+            }
+        },
+        
+
+
+    },
+
         // me: async (parent, args, context) => {
         //     if (context.user) { 
         //         const userData = await User.findOne({ _id: context.user._id }) 
         //   return userData 
         //     }
         //     throw AuthenticationError;
+
 
 
     Mutation: {
@@ -91,7 +116,7 @@ const resolvers = {
                 console.log(newPost);
                 return newPost;
             } catch (error) {
-                throw new Error(error.message);
+                throw new AuthenticationError('Log in');
             }
         },
 

@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { GET_POST,GET_POSTS, } from '../utils/queries';
+import { ADD_POST } from '../utils/mutations';
+import { useQuery, useMutation, gql } from '@apollo/client'
 
 const ReplyBox = () => {
   const [replyText, setReplyText] = useState('');
@@ -18,6 +21,35 @@ const ReplyBox = () => {
       <button className="ui button" onClick={handleReply}>Reply</button>
     </div>
   );
+};
+
+
+
+
+//handle Input Change function
+const handleInputChange = (e) => {
+  e.preventDefault();
+  const [text, setText] = useState('')
+  // const { name, value } = e.target;
+  setText(e.target.value);
+};
+
+//
+const handlePost = async (e) => {
+  e.preventDefault(); // Prevent the default form submit action
+  try {
+    await addPost({
+      variables: {
+        postText: text,
+        // Assuming your ADD_POST mutation requires a 'postText' variable.
+        // You might also need to include other variables like 'username' depending on your schema.
+      },
+    });
+    setText(''); // Clear the textarea after posting
+    // Optionally, refetch your posts or update Apollo cache here
+  } catch (error) {
+    console.error('Error adding post:', error);
+  }
 };
 
 const Comment = ({ author, date, text }) => {
@@ -45,17 +77,34 @@ const Comment = ({ author, date, text }) => {
 };
 
 const Discussion = () => {
+  const {loading, data} = useQuery(GET_POSTS);
+//useState for textvalue to add 
+const [text, setText] = useState('');
+const [addPost, { postData, postLoading, postError }] = useMutation(ADD_POST);
+console.log(data);
+console.log(loading);
   return (
     <div className="ui discussion-board">
       <h2 className="discuss-header">Discussion Board</h2>
-      <Comment author="Matt" date="Today at 5:42PM" text="To Kill a Mockingbird is revolutionary" />
-      <Comment author="Elliot Fu" date="Yesterday at 12:30AM" text="Twilight is life <3 Team Jacob!" />
-      <Comment author="Joe Henderson" date="5 days ago" text="Harry Potter and the Chamber of Secrets is the best book of the series. Change my mind!" />
-      <form className="ui reply form">
+      {
+        !loading?
+      data.getPosts.map(e => (
+        <Comment author ={e.username} date={e.createdAt} text={e.postText}/>
+      ) )
+      : <p>Loading posts</p> 
+      }
+     
+      <form className="ui reply form" onSubmit={handlePost}>
         <div className="field">
-          <textarea></textarea>
+          <textarea
+          value={text}
+          name="post"
+          onChange={handleInputChange}
+          type="text"
+          placeholder="Add your post"
+          />
         </div>
-        <button className="ui button">Create a Post</button>
+        <button type="submit" className="ui button">Create a Post</button>
       </form>
     </div>
   );

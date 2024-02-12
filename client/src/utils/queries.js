@@ -21,15 +21,6 @@ query GetUser {
 }`
 
 
-export const GET_POSTS = gql`
-mutation Mutation($postText: String!, $createdAt: String, $username: String!) {
-  addPost(postText: $postText, createdAt: $createdAt, username: $username) {
-    postText
-    createdAt
-    username
-  }
-}
-`
 
 export const QUERY_ME = gql `
 query Query {
@@ -38,4 +29,21 @@ query Query {
     _id
   }
 
+}`
+
+export const GET_POST = gql `
+query GetPost($postId: ID!) {
+  getPost(postId: $postId) {
+    postText
+    username
+    _id
+  }
+}`
+
+export const GET_POSTS = gql `query Query {
+  getPosts {
+    postText
+    username
+    createdAt
+  }
 }`
