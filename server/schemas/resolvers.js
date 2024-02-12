@@ -47,7 +47,7 @@ const resolvers = {
             }
             throw AuthenticationError;
  
-
+        }
         }
     },
 
@@ -106,7 +106,7 @@ const resolvers = {
             } catch (error) {
               throw new Error('Failed to remove post');
             }
-          }
+          },
         //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
         upVote: async (_, args, context) => {
             console.log(context.user._id, "Flag this error")
