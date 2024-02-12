@@ -2,9 +2,9 @@
 const typeDefs = `
   type User {
     _id: ID
-    username: String
-    email: String
-    posts: [Post]!
+    username: String!
+    email: String!
+    posts: [Post]
   }
 
   type Book {
@@ -13,6 +13,7 @@ const typeDefs = `
     author: String!
     imageUrl: String
     genre: String
+    users: [User]
     # votes: Int # Number of votes this book has received
     # comments: [Post]! # Assuming comments on books are captured as Posts
   }
@@ -33,7 +34,7 @@ type Post {
                  
 type Query {
     getBooks: [Book]
-    getBook(id: ID!): Book 
+    book(id: ID!): Book 
    # getComments(bookId: ID!): [Comment]
    getUser: User
    getPost: [Post]
@@ -50,6 +51,7 @@ type Auth {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(postText: String!, createdAt: String, username:String! ): Post
+    upVote(userId:ID!): Book
     #addPost(postId: ID!, commentText: String!): Post
     removePost(posttId: ID!): Post
    # removePost(postId: ID!, commentId: ID!): Post

@@ -6,10 +6,14 @@ const { AuthenticationError, signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getBooks: async (parent, args) => {
+        getBooks: async (parent, args, context) => {
             const books = await Book.find();
             return books;
         },
+        book: async (parent, args) => {
+            const book = await Book.findOne({_id:args._id})
+            return book;
+        }, 
         //I want to check for if a user logged in
         getUser: async (parent, args, context) => {
             if (context.user) {
@@ -42,21 +46,21 @@ const resolvers = {
 
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
-      
+
             if (!user) {
-              throw AuthenticationError;
+                throw AuthenticationError;
             }
-      
+
             const correctPw = await user.isCorrectPassword(password);
-      
+
             if (!correctPw) {
-              throw AuthenticationError;
+                throw AuthenticationError;
             }
-      
+
             const token = signToken(user);
-      
+
             return { token, user };
-          },
+        },
 
 
         addPost: async (_, { postText, createdAt, username }, context) => {
@@ -75,8 +79,19 @@ const resolvers = {
             }
         },
         //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
-    }
+        upVote: async (_, args, context) => {
+            if (context.user) {
+                const updatedBook = await Book.findOneAndUpdate(
+                    { _id: args._id },
+                    { $addToSet: { users: {userId:context.user._id }} }
 
+                )
+                return updatedBook;
+            }
+            throw AuthenticationError;
+
+        }
+    }
 };
 
 
