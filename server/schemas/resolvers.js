@@ -46,10 +46,6 @@ const resolvers = {
         //   return userData 
         //     }
         //     throw AuthenticationError;
- 
-        // }
-        }
-    },
 
 
     Mutation: {
@@ -107,6 +103,32 @@ const resolvers = {
               throw new Error('Failed to remove post');
             }
           },
+
+
+          addComment: async (_, { postId, text, author }, context) => {
+            try {
+                console.log(postId, text, author);
+              const post = await Post.findById(postId);
+              if (!post) {
+                throw new Error('Post not found');
+              }
+          
+              const newComment = { text, author };
+              console.log("1", post.comments)
+              post.comments.push({ text, author });
+              console.log("1")
+          
+              await post.save();
+              console.log("1")
+          
+              return post;
+            } catch (error) {
+                console.log(error)
+              throw new Error(error.message);
+            }
+          },
+
+
         //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
         upVote: async (_, args, context) => {
             console.log(context.user._id, "Flag this error")
@@ -126,7 +148,7 @@ const resolvers = {
             throw AuthenticationError;
 
         }
-    }
+}
 };
 
 
