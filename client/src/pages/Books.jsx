@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_BOOKS } from '../utils/queries';
-import Book from '../components/Books';
+import Book from '../components/Book';
 
 
 export default function Books() {
@@ -12,12 +12,10 @@ export default function Books() {
 
   console.log(bookData);
 
-
-
-  const handleVote = (bookId, newVotes) => {
-    // Implement logic to handle voting for the specific book
-    console.log(`Voted on book with ID ${bookId}. New vote count: ${newVotes}`);
-  };
+  // const handleVote = (bookId, newVotes) => {
+  //   // Implement logic to handle voting for the specific book
+  //   console.log(`Voted on book with ID ${bookId}. New vote count: ${newVotes}`);
+  // };
 
   return (
     <div className="books-page">
@@ -26,7 +24,7 @@ export default function Books() {
           <Book
             key={book._id}
             book={book}
-            onVote={handleVote}
+            // onVote={handleVote}
           />
         ))}
       </div>

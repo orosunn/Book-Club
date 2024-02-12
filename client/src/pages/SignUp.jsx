@@ -76,9 +76,9 @@ function SignUp() {
         <div className="signup-page">
             <h1 className="signup-header">Sign Up</h1>
                 <form className="ui form signup-form" onSubmit={handleFormSubmit}>
-                    <div className="three fields">
-                        <div className="field">
-                            <label>Username</label>
+                    
+                        <div className="field-signup">
+                            <h4 className="label">Username</h4>
                             <input value={username}
                                 name="username"
                                 onChange={handleInputChange}
@@ -86,30 +86,29 @@ function SignUp() {
                                 type="text"
                                 placeholder="Your Name" />
                         </div>
-                        <div className="field">
-                            <label>Email</label>
+                        <div className="field-signup">
+                            <h4 className="label">Email</h4>
                             <input value={email}
                                 name="email"
                                 onChange={handleInputChange}
                                 onBlur={handleBlur}
                                 type="email" placeholder="Email" />
                         </div>
-                        <div className="field">
-                            <label>Password</label>
+                        <div className="field-signup">
+                            <h4 className="label">Password</h4>
                             <input value={password}
                                 name="password"
                                 onChange={handleInputChange}
                                 onBlur={handleBlur}
                                 type="password" placeholder="Password" />
                         </div>
-                        <button type="submit">
-                            Sign Up
+                        <button className="submit-btn" type="submit">
+                            Submit
                         </button>
-                    </div>
+                   
                 </form>
         </div>
     )
 }
+
 export default SignUp;
-
-

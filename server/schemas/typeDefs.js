@@ -13,7 +13,7 @@ const typeDefs = `
     author: String!
     imageUrl: String
     genre: String
-    upvoteCount: Int
+    likes: Int
     users: [User]
     # votes: Int # Number of votes this book has received
     # comments: [Post]! # Assuming comments on books are captured as Posts

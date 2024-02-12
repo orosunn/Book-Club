@@ -40,14 +40,14 @@ const resolvers = {
         // } <- comment model not built yet, leave commented out for now
 
 // Later add get some info from books and add it here.
-        me: async (parent, args, context) => {
-            if (context.user) { 
-                const userData = await User.findOne({ _id: context.user._id }) 
-          return userData 
-            }
-            throw AuthenticationError;
+        // me: async (parent, args, context) => {
+        //     if (context.user) { 
+        //         const userData = await User.findOne({ _id: context.user._id }) 
+        //   return userData 
+        //     }
+        //     throw AuthenticationError;
  
-        }
+        // }
         }
     },
 
@@ -113,9 +113,12 @@ const resolvers = {
             if (context.user) {
                 const updatedBook = await Book.findOneAndUpdate(
                     { _id: args._id },
-                    { $addToSet: { users: context.user._id }},
+                    { 
+                        $addToSet: { users: context.user._id },
+                        $inc: { likes: 1 },
+                    },
+                    
                     { new: true } 
-                
 
                 )
                 return updatedBook;

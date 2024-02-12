@@ -38,6 +38,12 @@
     height: 40px;
 }
 
+.header-btn a{
+    font-size: 18px;
+    color: white;
+    padding: 2px;
+}
+
 #home-header {
     font-size: 36px;
     color: black;
@@ -55,13 +61,15 @@
 .intro {
     font-size: 20px;
     margin: 25px;
-    
 }
 
 .header-links {
     margin-top: 20px;
 }
 
+.books-page {
+    margin-bottom: 50px;
+}
 
 .book-card {
     width: 300px;
@@ -84,20 +92,6 @@
     text-align: center;
 }
 
-.signup {
-    font-size: 18px;
-    color: white;
-    padding: 2px;
-}
-
-.login {
-    font-size: 18px;
-    color: white;
-    padding: 2px;
-}
-
-
-
 .login-page {
     margin: 70px;
     padding-top: 10px;
@@ -116,16 +110,21 @@
     color: white;
 }
 
-.login-label {
-    color: white;
-}
-
 .login-form {
     width: 50%;
     text-align: center;
     left: 25%;
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+}
+
+#login-btn {
+    margin-top: 30px;
+    background-color: var(--lightblue);
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    font-size: 18px;
 }
 
 .signup-page {
@@ -145,6 +144,22 @@
     text-align: center;
 }
 
+.field-signup {
+    width: 50%;
+    text-align: center;
+    left: 25%;
+    position: relative;
+}
+
+.submit-btn {
+    background-color: var(--lightblue);
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    left: 43%;
+    position: relative;
+    font-size: 18px;
+}
 
 .discuss-header {
     text-align: center;
@@ -172,6 +187,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    position: relative;
+    bottom: 0px;
 }
 
 #footer-logo {
@@ -219,5 +236,17 @@
     border-radius: 30px;
     padding: 20px;
     background-color: var(--navyblue);
+}
 
+.field-contact {
+    margin: 10px;
+}
+
+.contact-btn {
+    background-color: var(--lightblue);
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    left: 40%;
+    position: relative;
 }
