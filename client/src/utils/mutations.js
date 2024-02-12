@@ -35,7 +35,7 @@ mutation Login($email: String!, $password: String!) {
 }`
 
 export const UPVOTE = gql `
-mutation Upvote($id: ID!) {
+mutation upVote($id: ID!) {
   upVote(_id: $id) {
     _id
     title
