@@ -29,3 +29,12 @@ mutation Mutation($postText: String!, $createdAt: String, $username: String!) {
   }
 }
 `
+
+export const QUERY_ME = gql `
+query Query {
+  me {
+    username
+    _id
+  }
+
+}`
