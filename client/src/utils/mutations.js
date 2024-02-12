@@ -24,6 +24,7 @@ mutation Mutation($postText: String!, $createdAt: String, $username: String!) {
     postText
     createdAt
     username
+    comments
   }
 }
 `
