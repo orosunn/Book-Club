@@ -21,14 +21,24 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
-        getPost: async () => {
+        getPost: async (parent, { postId }, context) => {
+            try {
+                const post = await Post.findById(postId);
+                
+                if (!post) {
+                    throw new Error('Post not found');
+                }
 
-            return await Post.find({}).populate('user');
-        },
+                return post;
+            } catch (error) {
+                console.error('Error retrieving post:', error);
+                throw error;
+            }
         // comment: async () => {
         //     const params = _id ? { _id } : {};
         //     return Comment.find (params);
         // } <- comment model not built yet, leave commented out for now
+
 // Later add get some info from books and add it here.
         me: async (parent, args, context) => {
             if (context.user) { 
@@ -37,6 +47,7 @@ const resolvers = {
             }
             throw AuthenticationError;
  
+
         }
     },
 
@@ -74,9 +85,9 @@ const resolvers = {
 
         addPost: async (_, { postText, createdAt, username }, context) => {
             // Optional: Check if the user is authenticated
-            if (!context.user) {
-                throw new AuthenticationError('You must be logged in to do this');
-            }
+            // if (!context.user) {
+            //     throw new AuthenticationError('You must be logged in to do this');
+            // }
 
             try {
                 const newPost = await Post.create({ postText, createdAt, username });
@@ -87,6 +98,15 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
+
+        removePost: async (_, { postId }) => {
+            try {
+              const removePost = await Post.findByIdAndRemove(postId);
+              return removePost;
+            } catch (error) {
+              throw new Error('Failed to remove post');
+            }
+          }
         //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
         upVote: async (_, args, context) => {
             console.log(context.user._id, "Flag this error")

@@ -38,8 +38,11 @@ type Query {
     book(id: ID!): Book 
    # getComments(bookId: ID!): [Comment]
    getUser: User
-   getPost: [Post]
+
+   getPost(postId: ID!): Post
    me: User
+
+
    #getVote: [Votes]
 }
 
@@ -55,7 +58,7 @@ type Auth {
     addPost(postText: String!, createdAt: String, username:String! ): Post
     upVote(_id:ID!): Book
     #addPost(postId: ID!, commentText: String!): Post
-    removePost(posttId: ID!): Post
+    removePost(postId: ID!): Post
    # removePost(postId: ID!, commentId: ID!): Post
    # addVote(upvote: Number, downvote: Number, rating: Number)
    # removeVote(voteId: ID!, upvote: Number, downvote: Number, rating: Number)
