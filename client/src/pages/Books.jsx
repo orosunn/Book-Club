@@ -21,7 +21,7 @@ export default function Books() {
 
   return (
     <div className="books-page">
-      <div className="ui four cards">
+      <div className="ui four cards book-cards">
         {bookData?.map((book) => (
           <Book
             key={book.id}
