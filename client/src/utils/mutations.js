@@ -27,7 +27,12 @@ mutation Mutation($postText: String!, $createdAt: String, $username: String!) {
   }
 }
 `
-
+export const LOGIN = gql `
+mutation Login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+  }
+}`
 
 
 

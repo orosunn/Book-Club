@@ -40,6 +40,25 @@ const resolvers = {
         },
         // create login mutation
 
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+      
+            if (!user) {
+              throw AuthenticationError;
+            }
+      
+            const correctPw = await user.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw AuthenticationError;
+            }
+      
+            const token = signToken(user);
+      
+            return { token, user };
+          },
+
+
         addPost: async (_, { postText, createdAt, username }, context) => {
             // Optional: Check if the user is authenticated
             if (!context.user) {
