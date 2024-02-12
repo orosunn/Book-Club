@@ -24,7 +24,7 @@ export default function Books() {
       <div className="ui four cards">
         {bookData?.map((book) => (
           <Book
-            key={book.id}
+            key={book._id}
             book={book}
             onVote={handleVote}
           />

@@ -29,6 +29,15 @@ const resolvers = {
         //     const params = _id ? { _id } : {};
         //     return Comment.find (params);
         // } <- comment model not built yet, leave commented out for now
+// Later add get some info from books and add it here.
+        me: async (parent, args, context) => {
+            if (context.user) { 
+                const userData = await User.findOne({ _id: context.user._id }) 
+          return userData 
+            }
+            throw AuthenticationError;
+ 
+        }
     },
 
 
@@ -80,10 +89,13 @@ const resolvers = {
         },
         //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
         upVote: async (_, args, context) => {
+            console.log(context.user._id, "Flag this error")
             if (context.user) {
                 const updatedBook = await Book.findOneAndUpdate(
                     { _id: args._id },
-                    { $addToSet: { users: {userId:context.user._id }} }
+                    { $addToSet: { users: context.user._id }},
+                    { new: true } 
+                
 
                 )
                 return updatedBook;
