@@ -17,18 +17,24 @@ const bookSchema = new Schema(
         imageUrl: {
             type: String
         },
-        upVote: [
+        users: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'User',
-            }
-        ],
-        downVote: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User',
+                ref: 'User'
             }
         ]
+        // upVote: [
+        //     {
+        //         type: Schema.Types.ObjectId,
+        //         ref: 'User',
+        //     }
+        // ],
+        // downVote: [
+        //     {
+        //         type: Schema.Types.ObjectId,
+        //         ref: 'User',
+        //     }
+        // ]
     },
     {
         toJSON: {
@@ -38,11 +44,17 @@ const bookSchema = new Schema(
     }
 );
 
-
+//When the user click the upvote they are added to the array
 bookSchema.virtual('upvoteCount')
     .get(function () {
-        return this.upVote.length;
+        return this.users.length;
     })
+
+
+// bookSchema.virtual('upvoteCount')
+//     .get(function () {
+//         return this.upVote.length;
+//     })
 
 const Book = model('Book', bookSchema);
 
