@@ -24,11 +24,11 @@ type Post {
     createdAt: String # Consider using a DateTime scalar
 }
 
-type Vote {
-  upvote: Number!
-  downvote: Number!
-  rating: Number!
-}
+ #type Vote  {
+  #upvote: Number!
+   #downvote: Number!
+   #rating: Number!
+# }
 
                  
 type Query {
@@ -37,7 +37,7 @@ type Query {
    # getComments(bookId: ID!): [Comment]
    getUser: User
    getPost: [Post]
-   getVote: [Votes]
+   #getVote: [Votes]
 }
 
 type Auth {
@@ -53,8 +53,8 @@ type Auth {
     #addPost(postId: ID!, commentText: String!): Post
     removePost(posttId: ID!): Post
    # removePost(postId: ID!, commentId: ID!): Post
-   addVote(upvote: Number, downvote: Number, rating: Number)
-   removeVote(voteId: ID! upvote: Number, downvote: Number, rating: Number)
+   # addVote(upvote: Number, downvote: Number, rating: Number)
+   # removeVote(voteId: ID!, upvote: Number, downvote: Number, rating: Number)
   }
 `
 module.exports = typeDefs;
