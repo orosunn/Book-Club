@@ -46,10 +46,7 @@ const resolvers = {
         //   return userData 
         //     }
         //     throw AuthenticationError;
- 
 
-     
-           }   // }
     },
 
 
@@ -109,6 +106,7 @@ const resolvers = {
             }
           },
 
+
           addComment: async (_, { postId, text, author }, context) => {
             try {
                 console.log(postId, text, author);
@@ -132,6 +130,7 @@ const resolvers = {
             }
           },
 
+
         //create logic to increment the upvote and downvote update the book to add the users id to it. (this will need to use context)
         upVote: async (_, args, context) => {
             console.log(context.user._id, "Flag this error")
@@ -150,6 +149,7 @@ const resolvers = {
         }
 }
 };
+
 
 
 module.exports = resolvers;
