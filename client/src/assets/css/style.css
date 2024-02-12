@@ -75,6 +75,15 @@
     margin: 30px;
 }
 
+.book-cards {
+    position: relative;
+    left: 2%;
+}
+
+.vote-btns {
+    text-align: center;
+}
+
 .signup {
     font-size: 18px;
     color: white;
@@ -138,23 +147,21 @@
 
 
 .discuss-header {
-    background-color: var(--beige);
-    width: 100%;
-    height: 50px;
     text-align: center;
+    font-size: 30px;
 }
 
 .discussion-board {
-    width: 75%;
-    left: 12.5%;
+    width: 50%;
+    left: 25%;
     position: relative;
     text-align: center;
 }
 
 .comment-box {
-    border-color: black;
+    border-color: var(--brown);
     border-style: solid;
-    border-radius: 50px;
+    border-radius: 30px;
     margin: 20px;
 }
 

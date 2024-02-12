@@ -47,17 +47,17 @@ const Book = ({ book, onVote }) => {
       <div>
         <img className="book-image" src={book.imageUrl} alt={book.title} />
   
-        <div className="extra">
+        <div className="extra vote-btns">
           <div>Rating: {votes}</div>
-          <button className="btn btn-success" onClick={() => handleVote()}>
-            Upvote
+
+          <button className="btn btn-success vote-btn" onClick={() => handleVote(1)}>
+            Like
           </button>
-          {/* <button className="btn btn-success" onClick={() => handleVote(1)}>
-            Upvote
+          <button className="btn btn-danger vote-btn" onClick={() => handleVote(-1)}>
+            Dislike
           </button>
-          <button className="btn btn-danger" onClick={() => handleVote(-1)}>
-            Downvote
-          </button> */}
+
+   
         </div>
       </div>
     );
