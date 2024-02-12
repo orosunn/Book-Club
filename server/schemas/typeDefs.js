@@ -38,8 +38,8 @@ type Query {
     book(id: ID!): Book 
    # getComments(bookId: ID!): [Comment]
    getUser: User
-
    getPost(postId: ID!): Post
+   getPosts: [Post]
    me: User
 
 

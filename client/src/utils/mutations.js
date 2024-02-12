@@ -18,15 +18,7 @@ query GetUser {
 }`
 
 
-export const GET_POSTS = gql`
-mutation Mutation($postText: String!, $createdAt: String, $username: String!) {
-  addPost(postText: $postText, createdAt: $createdAt, username: $username) {
-    postText
-    createdAt
-    username
-  }
-}
-`
+
 export const LOGIN = gql `
 mutation Login($email: String!, $password: String!) {
   login(email: $email, password: $password) {
@@ -44,17 +36,18 @@ mutation upVote($id: ID!) {
   }
 }`
 
+export const ADD_POST = gql `
+mutation Mutation($postText: String!, $username: String!) {
+  addPost(postText: $postText, username: $username) {
+    postText
+    username
+    _id
+  }
+}
+`
 
 
-// export const GET_POSTS = gql 
-// `query GetPost($id: ID!) {
-//   getPost(id: $id) {
-//     _id
-//     author {
-//       username
-//     }
-//   }
-// }`
+
 
 
 

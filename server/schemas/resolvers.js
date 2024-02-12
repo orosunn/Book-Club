@@ -48,7 +48,19 @@ const resolvers = {
             throw AuthenticationError;
  
         }
-        }
+        },
+        getPosts: async (parent, args, context) => {
+            try {
+                const posts = await Post.find().sort({ createdAt: -1 }); 
+                return posts;
+            } catch (error) {
+                console.error('Error retrieving posts:', error);
+                throw error;
+            }
+        },
+        
+
+
     },
 
 
@@ -95,7 +107,7 @@ const resolvers = {
                 console.log(newPost);
                 return newPost;
             } catch (error) {
-                throw new Error(error.message);
+                throw new AuthenticationError('Log in');
             }
         },
 
