@@ -47,21 +47,21 @@ function Contact() {
         <div className="ui form contact-form">
             <h1 className="contact-header">Get in Touch!</h1>
             <div className="two fields contact-fields">
-                <div className="field">
+                <div className="field-contact">
                     <label className="label">First name</label>
                     <input type="text" placeholder="First Name" value={name} onChange={handleInputChange} name="name" onBlur={handleInputBlur} />
                 </div>
-                <div className="field">
-                    <label>Email</label>
+                <div className="field-contact">
+                    <label className="label">Email</label>
                     <input type="text" placeholder="Email" value={email} onChange={handleInputChange} name="email" onBlur={handleInputBlur} />
                 </div>
             </div>
-            <div className="field">
-                <label>Message</label>
+            <div className="field-contact">
+                <label className="label">Message</label>
                 <textarea value={message} onChange={handleInputChange} name="message"></textarea>
             </div>
             {errorMessage && <div className="ui red message">{errorMessage}</div>}
-            <button className="ui button" onClick={handleFormSubmit}>Submit</button>
+            <button className="ui button contact-btn" onClick={handleFormSubmit}>Submit</button>
         </div>
     )
 }

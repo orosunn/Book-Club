@@ -47,8 +47,6 @@ const resolvers = {
         //     }
         //     throw AuthenticationError;
 
-    },
-
 
     Mutation: {
         addUser: async (_, { username, email, password }) => {
@@ -137,9 +135,12 @@ const resolvers = {
             if (context.user) {
                 const updatedBook = await Book.findOneAndUpdate(
                     { _id: args._id },
-                    { $addToSet: { users: context.user._id }},
+                    { 
+                        $addToSet: { users: context.user._id },
+                        $inc: { likes: 1 },
+                    },
+                    
                     { new: true } 
-                
 
                 )
                 return updatedBook;
