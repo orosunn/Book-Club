@@ -5,7 +5,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { UPVOTE } from '../utils/mutations';
 // import { QUERY_MATCHUPS } from '../utils/queries';
 import { QUERY_ME } from '../utils/queries';
-
+import AuthService from '../utils/auth';
 const Book = ({ book, onVote }) => {
     const [votes, setVotes] = useState(0);
   //This is importing the mutation upvote
@@ -18,10 +18,14 @@ const Book = ({ book, onVote }) => {
  const handleVote =  async () => {
   try { 
     console.log(book._id)
-    await upvote ({
-      //passing the prop into the function, so that we can use it on onClick
-      variables: { id:book._id}
-    })
+
+    if (AuthService.loggedIn()) {
+
+      await upvote ({
+        //passing the prop into the function, so that we can use it on onClick
+        variables: { id:book._id}
+      })
+    }
 
     window.location.reload();
   }
