@@ -7,13 +7,19 @@ const typeDefs = `
     posts: [Post]
   }
 
+type Comment {
+  text: String!
+  author: String!
+  date: String
+}
+
   type Book {
     _id: ID!
     title: String!
     author: String!
     imageUrl: String
     genre: String
-    upvoteCount: Int
+    likes: Int
     users: [User]
     # votes: Int # Number of votes this book has received
     # comments: [Post]! # Assuming comments on books are captured as Posts
@@ -24,6 +30,7 @@ type Post {
     postText: String!
     username: String!
     createdAt: String # Consider using a DateTime scalar
+    comments: [Comment] 
 }
 
  #type Vote  {
@@ -57,9 +64,9 @@ type Auth {
     login(email: String!, password: String!): Auth
     addPost(postText: String!, createdAt: String, username:String! ): Post
     upVote(_id:ID!): Book
-    #addPost(postId: ID!, commentText: String!): Post
+    addComment(postId: ID!, text: String!, author: String!): Post
     removePost(postId: ID!): Post
-   # removePost(postId: ID!, commentId: ID!): Post
+   # removeComment(postId: ID!, commentId: ID!): Post
    # addVote(upvote: Number, downvote: Number, rating: Number)
    # removeVote(voteId: ID!, upvote: Number, downvote: Number, rating: Number)
   }

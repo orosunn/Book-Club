@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-// import { useParams, Link } from 'react-router-dom';
-// import { CREATE_VOTE } from '../utils/mutations';
 import { UPVOTE } from '../utils/mutations';
-// import { QUERY_MATCHUPS } from '../utils/queries';
 import { QUERY_ME } from '../utils/queries';
 import AuthService from '../utils/auth';
+
 const Book = ({ book, onVote }) => {
-    const [votes, setVotes] = useState(0);
+  console.log(book)
+    const [votes, setVotes] = useState(book.likes || 0);
   //This is importing the mutation upvote
  const [ upvote, { data, error } ] = useMutation(UPVOTE);  
  //Checking if user is logged in
@@ -15,56 +14,36 @@ const Book = ({ book, onVote }) => {
  if (loading) return <p>Loading...</p>;
  if (userError) return <p>Error: {error.message}</p>;
 
+ // add logic so each user can only vote once - useState, start as true and if it's false put a disable attribute or unlike button
  const handleVote =  async () => {
   try { 
     console.log(book._id)
 
     if (AuthService.loggedIn()) {
-
+      setVotes(votes+1)
       await upvote ({
         //passing the prop into the function, so that we can use it on onClick
         variables: { id:book._id}
       })
     }
 
-    window.location.reload();
+   
   }
   catch (error) { 
     console.error(error)
 
   }
  }
-    // useEffect(() => {
-    //   // Update the vote count when the book data changes
-    //   setVotes(book.voteCount || 0);
-    // }, [book]);
-  
-    // const handleVote = (increment) => {
-    //   // Update the vote count and call the onVote function with the increment
-    //   const newVotes = votes + increment;
-    //   setVotes(newVotes);
-    //   onVote(book.id, newVotes);
-    // };
-  
+ 
     return (
   
       <div>
         <img className="book-image" src={book.imageUrl} alt={book.title} />
-  
         <div className="extra vote-btns">
-          <div>Rating: {votes}</div>
+          <div>Likes: {votes}</div>
           <button className="btn btn-success" onClick={() => handleVote()}>
-            Upvote
-          </button>
-
-          {/* <button className="btn btn-success vote-btn" onClick={() => handleVote(1)}>
             Like
           </button>
-          <button className="btn btn-danger vote-btn" onClick={() => handleVote(-1)}>
-            Dislike
-          </button> */}
-
-   
         </div>
       </div>
     );

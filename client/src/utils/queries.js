@@ -7,6 +7,7 @@ export const GET_BOOKS = gql`query getBooks {
       author
       imageUrl
       genre
+      likes
     }
   }`
 
