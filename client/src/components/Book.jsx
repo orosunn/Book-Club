@@ -6,6 +6,8 @@ import AuthService from '../utils/auth';
 
 const Book = ({ book, onVote }) => {
   console.log(book)
+  // show like count on page
+  // disable button after it's been clicked by a logged in user
   const [votes, setVotes] = useState(book.likes || 0);
   const [buttonClicked, setButtonClicked] = useState(false);
 
@@ -39,7 +41,7 @@ const Book = ({ book, onVote }) => {
     <div className="book-card">
       <img className="book-image" src={book.imageUrl} alt={book.title} />
       <div className="extra vote-btns">
-        <div>Likes: {votes}</div>
+        <div className="like-label">Likes: {votes}</div>
         <button className="btn like-btn" onClick={() => handleVote()} disabled={buttonClicked}>
           {buttonClicked ? "Liked" : "Like"}
         </button>

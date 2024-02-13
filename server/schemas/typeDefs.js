@@ -7,11 +7,11 @@ const typeDefs = `
     posts: [Post]
   }
 
-type Comment {
-  text: String!
-  author: String!
-  date: String
-}
+  type Comment {
+    text: String!
+    author: String!
+    date: String
+  }
 
   type Book {
     _id: ID!
@@ -25,21 +25,20 @@ type Comment {
     # comments: [Post]! # Assuming comments on books are captured as Posts
   }
 
-type Post {
-    _id: ID!
-    postText: String!
-    username: String!
-    createdAt: String # Consider using a DateTime scalar
-    comments: [Comment] 
-}
+  type Post {
+      _id: ID!
+      postText: String!
+      username: String!
+      createdAt: String # Consider using a DateTime scalar
+      comments: [Comment] 
+  }
 
- #type Vote  {
-  #upvote: Number!
-   #downvote: Number!
-   #rating: Number!
-# }
-
-                 
+  #type Vote  {
+    #upvote: Number!
+    #downvote: Number!
+    #rating: Number!
+  # }
+          
 type Query {
     getBooks: [Book]
     book(id: ID!): Book 
@@ -48,8 +47,6 @@ type Query {
    getPost(postId: ID!): Post
    getPosts: [Post]
    me: User
-
-
    #getVote: [Votes]
 }
 
@@ -57,7 +54,6 @@ type Auth {
     token: ID!
     user: User
   }
-
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

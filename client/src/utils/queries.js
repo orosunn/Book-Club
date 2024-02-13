@@ -1,17 +1,18 @@
 import { gql } from '@apollo/client';
 
-export const GET_BOOKS = gql`query getBooks {
-    getBooks {
-      _id
-      title
-      author
-      imageUrl
-      genre
-      likes
-    }
-  }`
+export const GET_BOOKS = gql`
+query getBooks {
+  getBooks {
+    _id
+    title
+    author
+    imageUrl
+    genre
+    likes
+  }
+}`
 
-  export const GET_USER = gql `
+export const GET_USER = gql`
 query GetUser {
   getUser {
     _id
@@ -22,16 +23,15 @@ query GetUser {
 
 
 
-export const QUERY_ME = gql `
+export const QUERY_ME = gql`
 query Query {
   me {
     username
     _id
   }
-
 }`
 
-export const GET_POST = gql `
+export const GET_POST = gql`
 query GetPost($postId: ID!) {
   getPost(postId: $postId) {
     postText
@@ -40,7 +40,8 @@ query GetPost($postId: ID!) {
   }
 }`
 
-export const GET_POSTS = gql `query Query {
+export const GET_POSTS = gql`
+query Query {
   getPosts {
     _id
     postText

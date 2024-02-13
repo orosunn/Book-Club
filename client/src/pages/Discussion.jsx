@@ -35,10 +35,8 @@ const Discussion = () => {
   };
 
 
-
-
-
   const Comment = ({ postId, author, date, text }) => {
+
     const [showReplyBox, setShowReplyBox] = useState(false);
 console.log(postId, "Comment postId!!")
     const toggleReplyBox = () => {
@@ -63,8 +61,6 @@ console.log(postId, "Comment postId!!")
       </div>
     );
   };
-
-
 
   const { loading, data } = useQuery(GET_POSTS);
   //useState for textvalue to add 

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { validateEmail } from '../utils/helpers';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-
 import Auth from '../utils/auth';
 
 function SignUp() {
@@ -17,9 +16,7 @@ function SignUp() {
         password: '',
     });
 
-
     const [addUser, { error, data }] = useMutation(ADD_USER);
-
 
     const handleBlur = (e) => {
         const { name, value } = e.target;
