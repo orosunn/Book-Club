@@ -196,6 +196,13 @@
     border-style: solid;
     border-radius: 30px;
     margin: 20px;
+    padding: 10px;
+}
+
+.remove {
+    background: transparent;
+    border-color: white;
+    margin: 5px;
 }
 
 .fields {

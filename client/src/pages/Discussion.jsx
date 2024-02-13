@@ -10,7 +10,7 @@ const Discussion = () => {
     refetchQueries: [{ query: GET_POSTS }], // Optional: Refetch posts after deletion
     // Or use update to remove the post from the cache without refetching
   });
-  
+
 
   const handlePost = async (e) => {
     e.preventDefault();
@@ -34,11 +34,10 @@ const Discussion = () => {
     }
   };
 
-
   const Comment = ({ postId, author, date, text }) => {
 
     const [showReplyBox, setShowReplyBox] = useState(false);
-console.log(postId, "Comment postId!!")
+    console.log(postId, "Comment postId!!")
     const toggleReplyBox = () => {
       setShowReplyBox(!showReplyBox);
     };
@@ -52,11 +51,8 @@ console.log(postId, "Comment postId!!")
           </div>
           <div className="text">{text}</div>
           <div className="actions">
-            <a className="reply" onClick={toggleReplyBox}>Reply</a>
             <button type="button" className="remove" onClick={() => handleRemovePost(postId)}>Remove</button>
-
           </div>
-          {showReplyBox && <ReplyBox />}
         </div>
       </div>
     );
@@ -86,17 +82,14 @@ console.log(postId, "Comment postId!!")
     console.log('Removing post with ID:', postId);
     try {
       await removePost({
-        variables: {postId: postId },
+        variables: { postId: postId },
       });
       // Optional: Show a success message or handle the UI update manually
     } catch (error) {
       console.error('Error removing post:', error);
-     
+
     }
   };
-  
-
-
 
   console.log(data);
   console.log(loading);
@@ -106,7 +99,7 @@ console.log(postId, "Comment postId!!")
       {
         !loading ?
           data.getPosts.map(e => (
-            
+
             <Comment
               key={e._id} postId={e._id}
               author={e.username} date={e.createdAt} text={e.postText} />
@@ -128,37 +121,6 @@ console.log(postId, "Comment postId!!")
       </form>
     </div>
   );
-
-
-  const ReplyBox = () => {
-    const [replyText, setReplyText] = useState('');
-
-    const handleReply = () => {
-      // Handle reply submission
-      console.log('Reply submitted:', replyText);
-      // Clear reply text
-      setReplyText('');
-    };
-
-
-    return (
-      <div className="ui reply form">
-        <div className="field">
-          <textarea value={replyText} onChange={(e) => setReplyText(e.target.value)}></textarea>
-        </div>
-        <button className="ui button" onClick={handleReply}>Reply</button>
-      </div>
-    );
-  };
-
-
-
-  //
-
-
-
-
-
 };
 
 export default Discussion;
