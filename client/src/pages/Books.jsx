@@ -7,12 +7,7 @@ import Book from '../components/Book';
 export default function Books() {
 
   const {loading, data} =  useQuery(GET_BOOKS);
-
   const bookData =  data?.getBooks || []
-
-  console.log(bookData);
-
-
 
   const handleVote = (bookId, newVotes) => {
     // Implement logic to handle voting for the specific book

@@ -50,12 +50,12 @@ const Login = (props) => {
             <form className="ui form" onSubmit={handleFormSubmit}>
               <div className="field-login">
                 <h3 className='label-login'>Email</h3>
-                <input className="input" type="email" name="email" placeholder="Email" value={formState.email}
+                <input className="input-login" type="email" name="email" placeholder="Email" value={formState.email}
                   onChange={handleChange} />
               </div>
               <div className="field-login">
                 <h3 className='label-login'>Password</h3>
-                <input className="input" type="password" name="password" placeholder="******" value={formState.password}
+                <input className="input-login" type="password" name="password" placeholder="******" value={formState.password}
                   onChange={handleChange} />
               </div>
               <button className="ui button" id="login-btn" onClick={handleFormSubmit}>Login</button>
