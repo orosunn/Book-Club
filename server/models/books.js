@@ -28,12 +28,7 @@ const bookSchema = new Schema(
             type: Schema.Types.Number,
             default: 0
         }
-        // downVote: [
-        //     {
-        //         type: Schema.Types.ObjectId,
-        //         ref: 'User',
-        //     }
-        // ]
+    
     },
     {
         toJSON: {
