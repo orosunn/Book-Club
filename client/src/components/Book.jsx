@@ -8,7 +8,7 @@ const Book = ({ book, onVote }) => {
   console.log(book)
     const [votes, setVotes] = useState(book.likes || 0);
   //This is importing the mutation upvote
- const [ upvote, { data, error } ] = useMutation(UPVOTE);  
+ const [ upVote, { data, error } ] = useMutation(UPVOTE);  
  //Checking if user is logged in
  const { loading, userData, userError } = useQuery(QUERY_ME);
  if (loading) return <p>Loading...</p>;
@@ -21,7 +21,7 @@ const Book = ({ book, onVote }) => {
 
     if (AuthService.loggedIn()) {
       setVotes(votes+1)
-      await upvote ({
+      await upVote ({
         //passing the prop into the function, so that we can use it on onClick
         variables: { id:book._id}
       })
