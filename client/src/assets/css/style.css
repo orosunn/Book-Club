@@ -69,12 +69,11 @@
 
 .books-page {
     margin-bottom: 50px;
+    background-color: var(--beige);
 }
 
 .book-card {
-    width: 300px;
-    height: 500px;
-    margin: 50px;
+    margin-bottom: 20px;
 }
 
 .book-image {
@@ -118,6 +117,10 @@
     margin-bottom: 50px;
 }
 
+.label-login {
+    color: white;
+}
+
 #login-btn {
     margin-top: 30px;
     background-color: var(--lightblue);
@@ -144,6 +147,10 @@
     text-align: center;
 }
 
+.label-signup {
+    color: white;
+}
+
 .field-signup {
     width: 50%;
     text-align: center;
@@ -159,6 +166,7 @@
     left: 43%;
     position: relative;
     font-size: 18px;
+    margin-top: 15px;
 }
 
 .discuss-header {
@@ -178,6 +186,48 @@
     border-style: solid;
     border-radius: 30px;
     margin: 20px;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-link {
+    font-size: 18px;
+    text-align: center;
+}
+
+.contact-header {
+    color: white;
+    text-align: center;
+}
+
+.label-contact {
+    color: white;
+}
+
+.contact-form {
+    margin: 50px;
+    width: 50%;
+    left: 25%;
+    border-style: solid;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: var(--navyblue);
+}
+
+.field-contact {
+    margin: 10px;
+}
+
+.contact-btn {
+    background-color: var(--lightblue);
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    left: 40%;
+    position: relative;
 }
 
 #footer {
@@ -207,46 +257,4 @@
 
 .footer-element {
     margin-top: 15px;
-}
-
-.fields {
-    display: flex;
-    flex-direction: column;
-}
-
-#contact-link {
-    font-size: 18px;
-    text-align: center;
-}
-
-.contact-header {
-    color: white;
-    text-align: center;
-}
-
-.label {
-    color: white;
-}
-
-.contact-form {
-    margin: 50px;
-    width: 50%;
-    left: 25%;
-    border-style: solid;
-    border-radius: 30px;
-    padding: 20px;
-    background-color: var(--navyblue);
-}
-
-.field-contact {
-    margin: 10px;
-}
-
-.contact-btn {
-    background-color: var(--lightblue);
-    border-radius: 10px;
-    height: 40px;
-    width: 100px;
-    left: 40%;
-    position: relative;
 }
