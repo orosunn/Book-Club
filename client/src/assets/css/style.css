@@ -202,8 +202,7 @@
 .remove {
     background: transparent;
     border-color: white;
-    position: relative;
-    left: 5%;
+    margin: 5px;
 }
 
 .fields {
