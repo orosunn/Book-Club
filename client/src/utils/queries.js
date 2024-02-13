@@ -42,6 +42,7 @@ query GetPost($postId: ID!) {
 
 export const GET_POSTS = gql `query Query {
   getPosts {
+    _id
     postText
     username
     createdAt

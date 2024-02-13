@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { GET_POST, GET_POSTS, } from '../utils/queries';
-import { ADD_POST } from '../utils/mutations';
+import { ADD_POST, REMOVE_POST } from '../utils/mutations';
 import { useQuery, useMutation, gql } from '@apollo/client'
 import Auth from '../utils/auth';
 
 
-
-
-
 const Discussion = () => {
-
+  const [removePost, { removePostData, removePostLoading, removePostError }] = useMutation(REMOVE_POST, {
+    refetchQueries: [{ query: GET_POSTS }], // Optional: Refetch posts after deletion
+    // Or use update to remove the post from the cache without refetching
+  });
+  
 
   const handlePost = async (e) => {
     e.preventDefault();
@@ -37,9 +38,9 @@ const Discussion = () => {
 
 
 
-  const Comment = ({ author, date, text }) => {
+  const Comment = ({ postId, author, date, text }) => {
     const [showReplyBox, setShowReplyBox] = useState(false);
-
+console.log(postId, "Comment postId!!")
     const toggleReplyBox = () => {
       setShowReplyBox(!showReplyBox);
     };
@@ -54,6 +55,8 @@ const Discussion = () => {
           <div className="text">{text}</div>
           <div className="actions">
             <a className="reply" onClick={toggleReplyBox}>Reply</a>
+            <button type="button" className="remove" onClick={() => handleRemovePost(postId)}>Remove</button>
+
           </div>
           {showReplyBox && <ReplyBox />}
         </div>
@@ -79,11 +82,26 @@ const Discussion = () => {
       return; // Prevent further execution if not logged in
     }
 
-
-
     const { name, value } = e.target;
     setText(e.target.value);
   };
+
+  const handleRemovePost = async (postId) => {
+    console.log('Removing post with ID:', postId);
+    try {
+      await removePost({
+        variables: {postId: postId },
+      });
+      // Optional: Show a success message or handle the UI update manually
+    } catch (error) {
+      console.error('Error removing post:', error);
+     
+    }
+  };
+  
+
+
+
   console.log(data);
   console.log(loading);
   return (
@@ -92,8 +110,9 @@ const Discussion = () => {
       {
         !loading ?
           data.getPosts.map(e => (
+            
             <Comment
-              key={e._id}
+              key={e._id} postId={e._id}
               author={e.username} date={e.createdAt} text={e.postText} />
           ))
           : <p>Loading posts</p>
