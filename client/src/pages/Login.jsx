@@ -49,12 +49,12 @@ const Login = (props) => {
           <div className="login-form">
             <form className="ui form" onSubmit={handleFormSubmit}>
               <div className="field-login">
-                <h3 className='label'>Email</h3>
+                <h3 className='label-login'>Email</h3>
                 <input className="input" type="email" name="email" placeholder="Email" value={formState.email}
                   onChange={handleChange} />
               </div>
               <div className="field-login">
-                <h3 className='label'>Password</h3>
+                <h3 className='label-login'>Password</h3>
                 <input className="input" type="password" name="password" placeholder="******" value={formState.password}
                   onChange={handleChange} />
               </div>

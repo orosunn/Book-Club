@@ -78,7 +78,7 @@ function SignUp() {
                 <form className="ui form signup-form" onSubmit={handleFormSubmit}>
                     
                         <div className="field-signup">
-                            <h4 className="label">Username</h4>
+                            <h4 className="label-signup">Username</h4>
                             <input value={username}
                                 name="username"
                                 onChange={handleInputChange}
@@ -87,7 +87,7 @@ function SignUp() {
                                 placeholder="Your Name" />
                         </div>
                         <div className="field-signup">
-                            <h4 className="label">Email</h4>
+                            <h4 className="label-signup">Email</h4>
                             <input value={email}
                                 name="email"
                                 onChange={handleInputChange}
@@ -95,7 +95,7 @@ function SignUp() {
                                 type="email" placeholder="Email" />
                         </div>
                         <div className="field-signup">
-                            <h4 className="label">Password</h4>
+                            <h4 className="label-signup">Password</h4>
                             <input value={password}
                                 name="password"
                                 onChange={handleInputChange}
