@@ -95,9 +95,6 @@ console.log(postId, "Comment postId!!")
     }
   };
   
-
-
-
   console.log(data);
   console.log(loading);
   return (

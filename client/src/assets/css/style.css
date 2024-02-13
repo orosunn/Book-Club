@@ -196,6 +196,14 @@
     border-style: solid;
     border-radius: 30px;
     margin: 20px;
+    padding: 10px;
+}
+
+.remove {
+    background: transparent;
+    border-color: white;
+    position: relative;
+    left: 5%;
 }
 
 .fields {
