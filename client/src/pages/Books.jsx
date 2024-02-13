@@ -12,10 +12,12 @@ export default function Books() {
 
   console.log(bookData);
 
-  // const handleVote = (bookId, newVotes) => {
-  //   // Implement logic to handle voting for the specific book
-  //   console.log(`Voted on book with ID ${bookId}. New vote count: ${newVotes}`);
-  // };
+
+
+  const handleVote = (bookId, newVotes) => {
+    // Implement logic to handle voting for the specific book
+    console.log(`Voted on book with ID ${bookId}. New vote count: ${newVotes}`);
+  };
 
   return (
     <div className="books-page">
@@ -24,7 +26,7 @@ export default function Books() {
           <Book
             key={book._id}
             book={book}
-            // onVote={handleVote}
+            onVote={handleVote}
           />
         ))}
       </div>

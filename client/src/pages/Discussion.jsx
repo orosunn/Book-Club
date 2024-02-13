@@ -12,22 +12,26 @@ const Discussion = () => {
 
 
   const handlePost = async (e) => {
-    e.preventDefault(); // Prevent the default form submit action
+    e.preventDefault();
+    if (!Auth.loggedIn()) {
+      alert("You need to be logged in to add a post. Please login or signup.");
+      return;
+    }
+
     try {
+      const username = Auth.getProfile().data.username; // Assuming this method returns the current user's profile
       await addPost({
         variables: {
           postText: text,
-          // Assuming your ADD_POST mutation requires a 'postText' variable.
-          // You might also need to include other variables like 'username' depending on your schema.
+          username, // Add username to the variables
         },
       });
       setText(''); // Clear the textarea after posting
-      // Optionally, refetch your posts or update Apollo cache here
+
     } catch (error) {
       console.error('Error adding post:', error);
     }
   };
-
 
 
 
@@ -62,15 +66,22 @@ const Discussion = () => {
   const { loading, data } = useQuery(GET_POSTS);
   //useState for textvalue to add 
   const [text, setText] = useState('');
-  const [addPost, { postData, postLoading, postError }] = useMutation(ADD_POST);
+  const [addPost, { postData, postLoading, postError }] = useMutation(ADD_POST, {
+    refetchQueries: [
+      { query: GET_POSTS },
+    ]
+  });
   //handle Input Change function
   const handleInputChange = (e) => {
-    // if (!Auth.loggedIn()) {
-    //   // show a login prompt
-    //   alert("You need to be logged in to add a post. Please login or signup.");
-    //   return; // Prevent further execution if not logged in
-    // }
-    // const { name, value } = e.target;
+    if (!Auth.loggedIn()) {
+      // show a login prompt
+      alert("You need to be logged in to add a post. Please login or signup.");
+      return; // Prevent further execution if not logged in
+    }
+
+
+
+    const { name, value } = e.target;
     setText(e.target.value);
   };
   console.log(data);
