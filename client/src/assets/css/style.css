@@ -8,11 +8,12 @@
 }
 
 .home-page {
-    background-image: url('bookshelf1.jpg');
+    background-image: url('https://github.com/orosunn/Book-Club/blob/main/client/public/bookshelf1.jpg?raw=true');
     background-size: 100%;
     padding: 100px;
     opacity: 80%;
     margin: 0;
+    height: 50vw;
 }
 
 .logo {
@@ -256,6 +257,7 @@
     margin-top: 10px;
     position: relative;
     bottom: 0px;
+    width: 100%;
 }
 
 #footer-logo {
