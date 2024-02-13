@@ -19,22 +19,23 @@ const Book = ({ book, onVote }) => {
 
   const handleVote = async () => {
     try {
-      console.log(book._id)
-
-      if (AuthService.loggedIn() && !buttonClicked) {
+      if (!AuthService.loggedIn()) {
+        // User is not logged in, prompt them to log in. 
+        // This could be a modal, redirect, or any other method you prefer.
+        alert("Please log in to vote."); // Simple alert for demonstration; consider using a more user-friendly approach.
+      } else if (!buttonClicked) {
+        // User is logged in and button has not yet been clicked, proceed with voting.
         setButtonClicked(true);
-        setVotes(votes + 1)
+        setVotes(votes + 1);
         await upVote({
-          //passing the prop into the function, so that we can use it on onClick
           variables: { id: book._id }
-        })
+        });
       }
+    } catch (error) {
+      console.error(error);
     }
-    catch (error) {
-      console.error(error)
-
-    }
-  }
+  };
+  
 
   return (
     <div className="book-card">

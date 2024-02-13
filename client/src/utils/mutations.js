@@ -42,7 +42,12 @@ mutation Mutation($postText: String!, $username: String!) {
   }
 }`
 
-
+export const REMOVE_POST = gql `
+mutation Mutation($postId: ID!) {
+  removePost(postId: $postId) {
+    _id
+  }
+}`
 
 
 
