@@ -11,6 +11,20 @@ const Book = ({ book, onVote }) => {
  const [ upVote, { data, error } ] = useMutation(UPVOTE);  
  //Checking if user is logged in
  const { loading, userData, userError } = useQuery(QUERY_ME);
+ const [isButtonDisabled, setIsButtonDisabled] = useState(
+  localStorage.getItem('buttonDisabled') === 'true'
+);
+
+useEffect(() => {
+  // Update localStorage when isButtonDisabled changes
+  localStorage.setItem('buttonDisabled', isButtonDisabled);
+}, [isButtonDisabled]);
+
+const handleClick = () => {
+  console.log('Button clicked!');
+  setIsButtonDisabled(true); // This will also update localStorage
+};
+
  if (loading) return <p>Loading...</p>;
  if (userError) return <p>Error: {error.message}</p>;
 
@@ -26,7 +40,10 @@ const Book = ({ book, onVote }) => {
         variables: { id:book._id}
       })
     }
-
+    if (!AuthService.loggedIn()) {
+      alert("You need to be logged in to add a post. Please login or signup.");
+      return;
+    }
    
   }
   catch (error) { 
@@ -41,7 +58,10 @@ const Book = ({ book, onVote }) => {
         <img className="book-image" src={book.imageUrl} alt={book.title} />
         <div className="extra vote-btns">
           <div>Likes: {votes}</div>
-          <button className="btn btn-success" onClick={() => handleVote()}>
+          <button className="btn btn-success" onClick={() =>{
+         handleVote();
+          handleClick()}}
+          disabled={isButtonDisabled}>
             Like
           </button>
         </div>
