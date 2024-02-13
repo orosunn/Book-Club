@@ -51,12 +51,10 @@
 // // Call the seedDatabase function to start seeding
 // seedDatabase();
 
-// const db = require('../config/connection')
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/bookDB');
-db = mongoose.connection;
+const db = require('../config/connection')
 const { Book } = require('../models');
 const bookData = require('./bookData.json');
+
 
 db.once('open', async () => {
   const books = await Book.insertMany(bookData)
