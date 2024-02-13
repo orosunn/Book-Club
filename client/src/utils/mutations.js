@@ -42,7 +42,7 @@ mutation upVote($id: ID!) {
   upVote(_id: $id) {
     _id
     title
-    upvoteCount
+    likes
    
   }
 }`

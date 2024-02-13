@@ -41,14 +41,7 @@ const resolvers = {
 
 // Later add get some info from books and add it here.
 
-        me: async (parent, args, context) => {
-            if (context.user) { 
-                const userData = await User.findOne({ _id: context.user._id }) 
-          return userData 
-            }
-            throw AuthenticationError;
- 
-        }
+       
         },
         getPosts: async (parent, args, context) => {
             try {
