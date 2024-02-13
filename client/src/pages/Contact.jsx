@@ -48,16 +48,16 @@ function Contact() {
             <h1 className="contact-header">Get in Touch!</h1>
             <div className="two fields contact-fields">
                 <div className="field-contact">
-                    <label className="label">First name</label>
+                    <label className="label-contact">First name</label>
                     <input type="text" placeholder="First Name" value={name} onChange={handleInputChange} name="name" onBlur={handleInputBlur} />
                 </div>
                 <div className="field-contact">
-                    <label className="label">Email</label>
+                    <label className="label-contact">Email</label>
                     <input type="text" placeholder="Email" value={email} onChange={handleInputChange} name="email" onBlur={handleInputBlur} />
                 </div>
             </div>
             <div className="field-contact">
-                <label className="label">Message</label>
+                <label className="label-contact">Message</label>
                 <textarea value={message} onChange={handleInputChange} name="message"></textarea>
             </div>
             {errorMessage && <div className="ui red message">{errorMessage}</div>}
