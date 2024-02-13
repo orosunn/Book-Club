@@ -10,6 +10,7 @@ import Discussion from './pages/Discussion';
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -42,12 +43,6 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />

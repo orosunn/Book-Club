@@ -11,8 +11,6 @@ export default function Header() {
           <button className="header-btn"><a className="login" href='/login'>Login</a></button>
         <button className="header-btn"><a className="signup" href='/signup'>Sign Up</a></button>
           </>}
-      
-       
         </div>
     </header>
     <Navbar />

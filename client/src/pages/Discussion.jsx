@@ -4,12 +4,7 @@ import { ADD_POST } from '../utils/mutations';
 import { useQuery, useMutation, gql } from '@apollo/client'
 import Auth from '../utils/auth';
 
-
-
-
-
 const Discussion = () => {
-
 
   const handlePost = async (e) => {
     e.preventDefault();
@@ -32,10 +27,6 @@ const Discussion = () => {
       console.error('Error adding post:', error);
     }
   };
-
-
-
-
 
   const Comment = ({ author, date, text }) => {
     const [showReplyBox, setShowReplyBox] = useState(false);
@@ -61,8 +52,6 @@ const Discussion = () => {
     );
   };
 
-
-
   const { loading, data } = useQuery(GET_POSTS);
   //useState for textvalue to add 
   const [text, setText] = useState('');
@@ -78,8 +67,6 @@ const Discussion = () => {
       alert("You need to be logged in to add a post. Please login or signup.");
       return; // Prevent further execution if not logged in
     }
-
-
 
     const { name, value } = e.target;
     setText(e.target.value);

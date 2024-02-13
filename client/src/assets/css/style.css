@@ -69,17 +69,17 @@
 
 .books-page {
     margin-bottom: 50px;
-    background-color: var(--beige);
 }
 
 .book-card {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .book-image {
     width: 200px;
     height: 300px;
     margin: 30px;
+    margin-bottom: 10px;
 }
 
 .book-cards {
@@ -87,8 +87,16 @@
     left: 2%;
 }
 
+.like-label {
+    font-size: 20px;
+}
+
 .vote-btns {
     text-align: center;
+}
+
+.like-btn {
+    margin: 5px;
 }
 
 .login-page {
@@ -119,6 +127,7 @@
 
 .label-login {
     color: white;
+    padding-top: 10px;
 }
 
 #login-btn {
@@ -149,6 +158,7 @@
 
 .label-signup {
     color: white;
+    padding-top: 10px;
 }
 
 .field-signup {
@@ -257,4 +267,15 @@
 
 .footer-element {
     margin-top: 15px;
+}
+
+@media (min-width: 390px) {
+    .logo {
+        width: 50%;
+    }
+
+    .home-text {
+        position: relative;
+        padding: 10px;
+    }
 }
