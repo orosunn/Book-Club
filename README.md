@@ -15,6 +15,12 @@ Just head to https://book-club-u6w0.onrender.com and sign up!
       
 ## Usage
 Users can sign up and login in to access site features. There is a list of books that can be updated with the option to vote for your favourites. On the discussion page, users can cast a comment and delete it after if they change their mind.
+
+Home Page:
+![Alt text](./client/src/assets/booknook-screenshot.png)
+
+Books Page: 
+![Alt text](./client/src/assets/booknook-screenshot2.png)
       
 ## License
 This application is covered under the MIT license.
